@@ -1,3 +1,4 @@
+import { db } from '../firebaseConfig'
 const { useState, useEffect } = require("react");
 
 function useReadNotes() {
@@ -5,19 +6,20 @@ function useReadNotes() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        const firebaseNotes = [];
         setLoading(true);
-        const noteList = [
-            {
-                id: 1,
-                text: "Write post"
-            },
-            {
-                id: 2,
-                text: "Watch some video"
-            },
-        ]
-        setNotes(noteList);
-        setLoading(false);
+        db.collection("notes")
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.docs.forEach((doc) => {
+                    firebaseNotes.push({
+                        id: doc.id,
+                        ...doc.data()
+                    });
+                });
+                setNotes(firebaseNotes);
+                setLoading(false);
+            });
     }, []);
 
     return [loading, notes, setNotes];
