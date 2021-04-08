@@ -153,3 +153,11 @@ section {
 .note__text {
   text-align: center;
 }
+
+@media (min-width: 350px) {
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+  }
+}
