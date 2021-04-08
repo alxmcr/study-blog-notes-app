@@ -27,6 +27,19 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+button {
+  appearance: none;
+  background-color: transparent;
+  color: var(--secondary);
+  border: none;
+  display: block;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
 h1,
 h2 {
   font-family: "Roboto", sans-serif;
@@ -38,127 +51,10 @@ h1 {
   margin: 0.5em 0;
 }
 
+i {
+  color: var(--secondary);
+}
+
 section {
   padding: 0 0.5em;
-}
-
-input:focus {
-  outline: none;
-}
-
-.note {
-  border-radius: 0.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.5em;
-  padding: 0.5em;
-  width: 100%;
-}
-
-.note--classic {
-  background-color: var(--secondary);
-  color: var(--accent);
-}
-
-.note--empty {
-  border: 1px dashed var(--secondary);
-  margin: 0.5em 0;
-}
-
-.note--new {
-  background-color: var(--tertiary);
-  color: var(--accent);
-  margin: 0.5em 0;
-}
-
-.note--edit {
-  background-color: var(--tertiary);
-  color: var(--accent);
-  margin: 0.5em 0;
-}
-
-.note__actions {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 0.5em;
-  margin-right: 0.2em;
-  margin-top: 0.2em;
-}
-
-.note__button {
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  display: block;
-  outline: none;
-}
-
-.note__button--action {
-  color: var(--accent);
-}
-
-.note__button--new {
-  color: var(--secondary);
-}
-
-.note__button--primary {
-  background-color: var(--primary);
-  color: var(--secondary);
-}
-
-.note__button--secondary {
-  border: 1px solid var(--primary);
-}
-
-.note__button--primary,
-.note__button--secondary,
-.note__label,
-.note__input {
-  font-size: 0.8em;
-  padding: 0.8em;
-}
-
-.note__button--primary,
-.note__button--secondary,
-.note__input {
-  border-radius: 10px;
-  display: block;
-}
-
-.note__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.note__form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.note__input {
-  border: none;
-  width: 100%;
-}
-
-.note__text {
-  color: var(--accent);
-  font-size: 1.2em;
-  display: block;
-  padding: 4em 0;
-  text-align: center;
-}
-
-.note__text--secondary {
-  color: var(--secondary);
-}
-
-.notes {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
 }
