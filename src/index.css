@@ -87,7 +87,7 @@ section {
   border: 1px solid var(--primary);
 }
 
-.note__buttons{
+.note__buttons {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -104,11 +104,20 @@ section {
   color: var(--secondary);
 }
 
-.note--form {
+.note__form {
   background-color: var(--tertiary);
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.note__form--new {
+  background-color: var(--tertiary);
+  color: var(--accent);
+}
+
+.note__form--edit {
+  background-color: var(--tertiary);
   color: var(--accent);
 }
 

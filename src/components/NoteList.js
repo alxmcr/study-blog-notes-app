@@ -8,7 +8,6 @@ const NoteList = () => {
     const [loading, notes, setNotes] = useReadNotes();
     const [isVisibleNew, setIsVisibleNew] = useState(false);
 
-
     return (
         <section className="container">
             {notes &&
@@ -29,6 +28,7 @@ const NoteList = () => {
                             <NoteCard key={id}
                                 id={id}
                                 text={text}
+                                setNotes={setNotes}
                             />
                         )
                     }

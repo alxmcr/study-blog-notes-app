@@ -1,12 +1,12 @@
 import { db } from '../firebaseConfig';
 import { useState } from "react";
 
-const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
+const EditNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
     const [text, setText] = useState("");
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState(null);
     const handletext = (e) => setText(e.target.value);
-    const closeNewNoteForm = () => setIsVisibleNew(false);
+    const closeEditNoteForm = () => setIsVisibleNew(false);
     const saveNote = (e) => {
         e.preventDefault();
         setSaving(true);
@@ -29,7 +29,7 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
 
     return (
         <form onSubmit={saveNote}
-            className="note note__form note__form--new">
+            className="note note__form note__form--edit">
             <label htmlFor="note__input" className="note__label">Text for your note</label>
             <input type="text"
                 className="note__input"
@@ -47,7 +47,7 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
                 <input type="button"
                     className="note__button note__button--secondary"
                     value="Cancel"
-                    onClick={closeNewNoteForm}
+                    onClick={closeEditNoteForm}
                 />
             </div>
             {error && <p className="note__message--error">{error}</p>}
@@ -56,4 +56,4 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
     )
 }
 
-export default NewNoteForm;
+export default EditNoteForm;
