@@ -38,7 +38,7 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
                 onChange={handletext}
                 required
             />
-            <div className="note__actions">
+            <div className="note__buttons">
                 <input type="submit"
                     className="note__button note__button--primary"
                     value="Save note"
