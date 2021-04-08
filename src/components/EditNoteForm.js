@@ -25,30 +25,33 @@ const EditNoteForm = ({ setIsVisibleEdit, setNotes, idNoteSelected }) => {
     }
 
     return (
-        <form onSubmit={updateNote}
-            className="note note__form note__form--edit">
-            <label htmlFor="note__input" className="note__label">Text for your note</label>
-            <input type="text"
-                className="note__input"
-                name="note__input"
-                id="note__input"
-                value={text}
-                onChange={handletext}
-                required
-            />
-            <div className="note__buttons">
-                <input type="submit"
-                    className="note__button note__button--primary"
-                    value="Save note"
+        <div className="container__form">
+            <h2>Edit Note</h2>
+            <form onSubmit={updateNote}
+                className="note note__form note__form--edit">
+                <label htmlFor="note__input" className="note__label">Text for your note</label>
+                <input type="text"
+                    className="note__input"
+                    name="note__input"
+                    id="note__input"
+                    value={text}
+                    onChange={handletext}
+                    required
                 />
-                <input type="button"
-                    className="note__button note__button--secondary"
-                    value="Cancel"
-                    onClick={closeEditNoteForm}
-                />
-            </div>
-            {updating && <p className="note__message">Updating note...</p>}
-        </form>
+                <div className="note__buttons">
+                    <input type="submit"
+                        className="note__button note__button--primary"
+                        value="Update note"
+                    />
+                    <input type="button"
+                        className="note__button note__button--secondary"
+                        value="Cancel"
+                        onClick={closeEditNoteForm}
+                    />
+                </div>
+                {updating && <p className="note__message">Updating note...</p>}
+            </form>
+        </div>
     )
 }
 

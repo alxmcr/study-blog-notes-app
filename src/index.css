@@ -44,7 +44,6 @@ section {
 }
 
 .note {
-  align-items: center;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -95,19 +94,23 @@ section {
 }
 
 .note--classic {
+  align-items: center;
   background-color: var(--secondary);
   color: var(--accent);
 }
 
 .note--empty {
+  align-items: center;
   border: 1px dashed var(--secondary);
   color: var(--secondary);
 }
 
 .note__form {
+  align-items: flex-start;
   background-color: var(--tertiary);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 0.5em;
 }
 
@@ -148,9 +151,8 @@ section {
 }
 
 .note__label {
-  font-size: 1.2em;
-  font-weight: 700;
-  margin: 0.5em 0;
+  display: block;
+  text-align: left;
 }
 
 .note__text {
