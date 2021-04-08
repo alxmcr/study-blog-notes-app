@@ -48,8 +48,8 @@ section {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 1em;
   justify-content: center;
+  padding: 0.5em;
 }
 
 .note--classic {
@@ -62,11 +62,6 @@ section {
   color: var(--secondary);
 }
 
-.note--classic,
-.note--empty {
-  height: 10em;
-}
-
 .note--form {
   background-color: var(--tertiary);
   color: var(--accent);
@@ -75,7 +70,8 @@ section {
 
 .note__actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-end;
   gap: 0.5em;
   width: 100%;
 }
@@ -90,7 +86,7 @@ section {
 
 .note__button--primary {
   background-color: var(--primary);
-  color: var(--secondary)
+  color: var(--secondary);
 }
 
 .note__button--primary,
@@ -116,7 +112,6 @@ section {
   border: 1px solid var(--secondary);
   border-radius: 50%;
   color: var(--secondary);
-  font-size: 1.5em;
   height: 2em;
   width: 2em;
 }
@@ -124,6 +119,10 @@ section {
 .note__button--new:hover {
   background-color: var(--secondary);
   color: var(--primary);
+}
+
+.note__icon {
+  font-size: 1.13em;
 }
 
 .note__input:focus {
@@ -137,4 +136,8 @@ section {
 
 .note__text {
   font-size: 1.2em;
+  display: block;
+  padding: 4em;
+  text-align: center;
+  width: 100%;
 }

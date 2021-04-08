@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 const NewNoteCard = ({ setIsVisibleNew }) => {
     const openNewNoteForm = () => setIsVisibleNew(true);
 
@@ -7,7 +10,9 @@ const NewNoteCard = ({ setIsVisibleNew }) => {
             <button
                 className="note__button note__button--new"
                 onClick={openNewNoteForm}
-            >+</button>
+            >
+                <FontAwesomeIcon className="note__icon" icon={faPlus} />
+            </button>
         </div>
     )
 }
