@@ -30,7 +30,6 @@ body {
 button {
   appearance: none;
   background-color: transparent;
-  color: var(--secondary);
   border: none;
   display: block;
   outline: none;
@@ -57,4 +56,36 @@ i {
 
 section {
   padding: 0 0.5em;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.note {
+  background-color: var(--secondary);
+  border-radius: 0.5em;
+  color: var(--accent);
+  padding: 0.5em;
+}
+
+.note__body {
+  padding: 4em;
+}
+
+.note__button {
+  color: var(--accent);
+}
+
+.note__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.note__text {
+  text-align: center;
 }
