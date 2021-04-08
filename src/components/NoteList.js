@@ -11,9 +11,19 @@ const NoteList = () => {
 
     return (
         <section className="container">
-            {loading && <span>Notes: Loading...</span>}
             {notes &&
                 <div className="notes">
+                    <NewNoteCard
+                        setIsVisibleNew={setIsVisibleNew}
+                        />
+                    {isVisibleNew &&
+                        <NewNoteForm
+                        setIsVisibleNew={setIsVisibleNew}
+                        notes={notes}
+                        setNotes={setNotes}
+                        />
+                    }
+                    {loading && <span>Notes: Loading...</span>}
                     {
                         notes.map(({ id, text }) =>
                             <NoteCard key={id}
@@ -22,16 +32,7 @@ const NoteList = () => {
                             />
                         )
                     }
-                    {isVisibleNew &&
-                        <NewNoteForm
-                            setIsVisibleNew={setIsVisibleNew}
-                            notes={notes}
-                            setNotes={setNotes}
-                        />
-                    }
-                    <NewNoteCard
-                        setIsVisibleNew={setIsVisibleNew}
-                    />
+
                 </div>
             }
         </section>

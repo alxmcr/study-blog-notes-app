@@ -9,6 +9,7 @@ function useReadNotes() {
         const firebaseNotes = [];
         setLoading(true);
         db.collection("notes")
+            .orderBy("createdAt", "desc")
             .get()
             .then((querySnapshot) => {
                 querySnapshot.docs.forEach((doc) => {

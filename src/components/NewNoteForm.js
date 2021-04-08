@@ -12,11 +12,12 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
         setSaving(true);
 
         // Add a new document in collection "notes"
+        let newNote = { text, createdAt: new Date() };
         db.collection("notes")
-            .add({ text })
+            .add({ text, createdAt: new Date() })
             .then(({ id }) => {
-                const newNote = { id, text };
-                setNotes([...notes, newNote]);
+                newNote.id = id;
+                setNotes([newNote, ...notes]);
                 setIsVisibleNew(false);
                 setSaving(false);
             })
