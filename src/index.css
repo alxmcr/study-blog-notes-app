@@ -11,6 +11,16 @@
   padding: 0;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--primary);
   color: var(--secondary);
@@ -24,31 +34,58 @@ h2 {
   text-align: center;
 }
 
-.container {
-  padding: 10px;
+h1 {
+  margin: 0.5em 0;
 }
 
-.notes {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 0.5em;
+section {
+  padding: 0 0.5em;
+}
+
+input:focus {
+  outline: none;
 }
 
 .note {
-  border-radius: 10px;
+  border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.5em;
   padding: 0.5em;
+  width: 100%;
+}
+
+.note--classic {
+  background-color: var(--secondary);
+  color: var(--accent);
+}
+
+.note--empty {
+  border: 1px dashed var(--secondary);
+  margin: 0.5em 0;
+}
+
+.note--new {
+  background-color: var(--tertiary);
+  color: var(--accent);
+  margin: 0.5em 0;
+}
+
+.note--edit {
+  background-color: var(--tertiary);
+  color: var(--accent);
+  margin: 0.5em 0;
 }
 
 .note__actions {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   gap: 0.5em;
-  width: 100%;
+  margin-right: 0.2em;
+  margin-top: 0.2em;
 }
 
 .note__button {
@@ -59,9 +96,29 @@ h2 {
   outline: none;
 }
 
+.note__button--action {
+  color: var(--accent);
+}
+
+.note__button--new {
+  color: var(--secondary);
+}
+
 .note__button--primary {
   background-color: var(--primary);
   color: var(--secondary);
+}
+
+.note__button--secondary {
+  border: 1px solid var(--primary);
+}
+
+.note__button--primary,
+.note__button--secondary,
+.note__label,
+.note__input {
+  font-size: 0.8em;
+  padding: 0.8em;
 }
 
 .note__button--primary,
@@ -69,88 +126,39 @@ h2 {
 .note__input {
   border-radius: 10px;
   display: block;
-  font-size: 1.1em;
-  padding: 0.8em;
-}
-
-.note__button--primary,
-.note__button--secondary {
-  border: 1px solid var(--primary);
 }
 
 .note__buttons {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  width: 100%;
-}
-
-.note--classic {
-  align-items: center;
-  background-color: var(--secondary);
-  color: var(--accent);
-}
-
-.note--empty {
-  align-items: center;
-  border: 1px dashed var(--secondary);
-  color: var(--secondary);
 }
 
 .note__form {
-  align-items: flex-start;
-  background-color: var(--tertiary);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 0.5em;
-}
-
-.note__form--new {
-  background-color: var(--tertiary);
-  color: var(--accent);
-}
-
-.note__form--edit {
-  background-color: var(--tertiary);
-  color: var(--accent);
 }
 
 .note__input {
   border: none;
-  width: 90%;
-}
-
-.note__button--new {
-  border: 1px solid var(--secondary);
-  border-radius: 50%;
-  color: var(--secondary);
-  height: 2em;
-  width: 2em;
-}
-
-.note__button--new:hover {
-  background-color: var(--secondary);
-  color: var(--primary);
-}
-
-.note__icon {
-  font-size: 1.13em;
-}
-
-.note__input:focus {
-  outline: none;
-}
-
-.note__label {
-  display: block;
-  text-align: left;
+  width: 100%;
 }
 
 .note__text {
+  color: var(--accent);
   font-size: 1.2em;
   display: block;
-  padding: 4em;
+  padding: 4em 0;
   text-align: center;
-  width: 100%;
+}
+
+.note__text--secondary {
+  color: var(--secondary);
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }

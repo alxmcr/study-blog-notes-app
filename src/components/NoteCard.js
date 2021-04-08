@@ -17,7 +17,7 @@ const Note = ({ id, text = "", setNotes, setIsVisibleEdit, setIdNoteSelected }) 
         <div className="note note--classic" id={id}>
             <div className="note__actions">
                 <button
-                    className="note__button note--action"
+                    className="note__button note__button--action"
                     onClick={deleteNote}
                 >
                     <FontAwesomeIcon
@@ -26,7 +26,7 @@ const Note = ({ id, text = "", setNotes, setIsVisibleEdit, setIdNoteSelected }) 
                     />
                 </button>
                 <button
-                    className="note__button note--action"
+                    className="note__button note__button--action"
                     onClick={openEditNoteForm}
                 >
                     <FontAwesomeIcon

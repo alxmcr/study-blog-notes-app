@@ -28,16 +28,18 @@ const EditNoteForm = ({ setIsVisibleEdit, setNotes, idNoteSelected }) => {
         <div className="note note--edit">
             <h2>Edit Note</h2>
             <form onSubmit={updateNote}
-                className="note note__form note__form--edit">
-                <label htmlFor="note__input" className="note__label">Text for your note</label>
-                <input type="text"
-                    className="note__input"
-                    name="note__input"
-                    id="note__input"
-                    value={text}
-                    onChange={handletext}
-                    required
-                />
+                className="note__form note__form--edit">
+                <div className="note__field">
+                    <label htmlFor="note__input" className="note__label">Text for your note</label>
+                    <input type="text"
+                        className="note__input"
+                        name="note__input"
+                        id="note__input"
+                        value={text}
+                        onChange={handletext}
+                        required
+                    />
+                </div>
                 <div className="note__buttons">
                     <input type="submit"
                         className="note__button note__button--primary"
