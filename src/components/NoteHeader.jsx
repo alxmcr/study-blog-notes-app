@@ -4,7 +4,6 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const NoteHeader = ({ id, setNotes }) => {
     const deleteNote = () => {
-        console.log("Deleting...", id);
 
         db.collection("notes").doc(id).delete().then(() => {
             console.log("Note successfully deleted!");
