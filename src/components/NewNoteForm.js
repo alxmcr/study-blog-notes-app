@@ -1,17 +1,29 @@
+import { db } from '../firebaseConfig';
 import { useState } from "react";
 
 const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
-    const [noteText, setNoteText] = useState("");
-    const handleNoteText = (e) => setNoteText(e.target.value);
+    const [text, setText] = useState("");
+    const [saving, setSaving] = useState(false);
+    const [error, setError] = useState(null);
+    const handletext = (e) => setText(e.target.value);
     const closeNewNoteForm = () => setIsVisibleNew(false);
     const saveNote = (e) => {
         e.preventDefault();
-        console.log("Saving a note...", noteText);
-        const notesUpdated = [...notes, {
-            id: 19999,
-            text: noteText
-        }]
-        setNotes(notesUpdated)
+        setSaving(true);
+
+        // Add a new document in collection "notes"
+        db.collection("notes")
+            .add({ text })
+            .then(({ id }) => {
+                const newNote = { id, text };
+                setNotes([...notes, newNote]);
+                setIsVisibleNew(false);
+                setSaving(false);
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+                setError(error);
+            });
     }
 
     return (
@@ -20,8 +32,8 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
             <input type="text"
                 name="note__text"
                 id="note_text"
-                value={noteText}
-                onChange={handleNoteText}
+                value={text}
+                onChange={handletext}
             />
             <input type="submit"
                 className="note__button--primary"
@@ -32,6 +44,8 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
                 value="Cancel"
                 onClick={closeNewNoteForm}
             />
+            {error && <p className="note__message--error">{error}</p>}
+            {saving && <p className="note__message">Saving new note...</p>}
         </form>
     )
 }
