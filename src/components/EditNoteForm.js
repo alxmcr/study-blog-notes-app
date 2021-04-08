@@ -25,7 +25,7 @@ const EditNoteForm = ({ setIsVisibleEdit, setNotes, idNoteSelected }) => {
     }
 
     return (
-        <div className="container__form">
+        <div className="note note--edit">
             <h2>Edit Note</h2>
             <form onSubmit={updateNote}
                 className="note note__form note__form--edit">

@@ -28,7 +28,7 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
     }
 
     return (
-        <div className="container__form">
+        <div className="note note--new">
             <h2>New Note</h2>
             <form onSubmit={saveNote}
                 className="note note__form  note__form--new">
