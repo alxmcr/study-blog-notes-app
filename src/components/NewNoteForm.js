@@ -28,23 +28,27 @@ const NewNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
     }
 
     return (
-        <form onSubmit={saveNote} className="note__form">
-            <label htmlFor="note__text">Text for your note</label>
+        <form onSubmit={saveNote} className="note note--form">
+            <label htmlFor="note__input" className="note__label">Text for your note</label>
             <input type="text"
-                name="note__text"
-                id="note_text"
+                className="note__input"
+                name="note__input"
+                id="note__input"
                 value={text}
                 onChange={handletext}
+                required
             />
-            <input type="submit"
-                className="note__button--primary"
-                value="Save note"
-            />
-            <input type="button"
-                className="note__button--secondary"
-                value="Cancel"
-                onClick={closeNewNoteForm}
-            />
+            <div className="note__actions">
+                <input type="submit"
+                    className="note__button note__button--primary"
+                    value="Save note"
+                />
+                <input type="button"
+                    className="note__button note__button--secondary"
+                    value="Cancel"
+                    onClick={closeNewNoteForm}
+                />
+            </div>
             {error && <p className="note__message--error">{error}</p>}
             {saving && <p className="note__message">Saving new note...</p>}
         </form>

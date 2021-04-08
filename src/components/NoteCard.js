@@ -1,7 +1,7 @@
-const Note = ({ id, text }) => {
+const Note = ({ id, text = "" }) => {
     return (
         <div className="note note--classic" id={id}>
-            <p className="note__text">{text}</p>
+            <p className="note__text">{text.toUpperCase()}</p>
         </div>
     )
 }
