@@ -1,34 +1,31 @@
 import { db } from '../firebaseConfig';
 import { useState } from "react";
 
-const EditNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
+const EditNoteForm = ({ setIsVisibleEdit, setNotes, idNoteSelected }) => {
     const [text, setText] = useState("");
-    const [saving, setSaving] = useState(false);
-    const [error, setError] = useState(null);
+    const [updating, setUpdating] = useState(false);
     const handletext = (e) => setText(e.target.value);
-    const closeEditNoteForm = () => setIsVisibleNew(false);
-    const saveNote = (e) => {
+    const closeEditNoteForm = () => setIsVisibleEdit(false);
+    const updateNote = (e) => {
         e.preventDefault();
-        setSaving(true);
+        setUpdating(true);
+        console.log("Editing...", idNoteSelected);
 
-        // Add a new document in collection "notes"
-        let newNote = { text, createdAt: new Date() };
-        db.collection("notes")
-            .add({ text, createdAt: new Date() })
-            .then(({ id }) => {
-                newNote.id = id;
-                setNotes([newNote, ...notes]);
-                setIsVisibleNew(false);
-                setSaving(false);
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-                setError(error);
-            });
+        setNotes(prevNotes => {
+            let notesUpdated = [...prevNotes];
+            const indexNoteToUpdate = notesUpdated.findIndex(note => note.id === idNoteSelected);
+
+            if (indexNoteToUpdate > -1) {
+                notesUpdated[indexNoteToUpdate].text = text;
+            }
+
+            return notesUpdated;
+        })
+        setUpdating(false);
     }
 
     return (
-        <form onSubmit={saveNote}
+        <form onSubmit={updateNote}
             className="note note__form note__form--edit">
             <label htmlFor="note__input" className="note__label">Text for your note</label>
             <input type="text"
@@ -50,8 +47,7 @@ const EditNoteForm = ({ setIsVisibleNew, notes, setNotes }) => {
                     onClick={closeEditNoteForm}
                 />
             </div>
-            {error && <p className="note__message--error">{error}</p>}
-            {saving && <p className="note__message">Saving new note...</p>}
+            {updating && <p className="note__message">Updating note...</p>}
         </form>
     )
 }
