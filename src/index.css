@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@100;300;400;500;700&display=swap');
 :root {
-    --bg-primary: #dee0e6;
-    --bg-secondary: #10405B;
-    --bg-accent: #443D3B;
-    --text-primary: #000;
-    --text-secondary: #dee0e6;
-    --text-accent: #503a65;
+    --primary: #370617;
+    --secondary: #b2c5a1;
+    --accent: #081c15;
+    --error: #FF5252;
+    --info: #2196F3;
+    --success: #4CAF50;
+    --warning: #FFC107;
 }
 
 * {
@@ -14,17 +15,13 @@
 }
 
 body {
-    background-color: var(--bg-primary);
-    color: var(--text-accent);
+    background-color: var(--primary);
+    color: var(--secondary);
     font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
-    margin: 1em;
-}
-
-h2 {
-    margin: 0.5em;
+    margin: 0.5em 0;
 }
 
 h1,
@@ -36,4 +33,30 @@ h2 {
 
 section {
     margin: 1.5em 0;
+}
+
+.container{
+    padding: 10px;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.note {
+    align-items: center;
+    background-color: var(--secondary);
+    border: 1px solid #000;
+    border-radius: 10px;
+    color: var(--accent);
+    display: flex;
+    justify-content: center;
+    height: 8em;
+}
+
+.note__text{
+    font-size: 1.2em;
 }
