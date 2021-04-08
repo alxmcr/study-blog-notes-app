@@ -52,22 +52,6 @@ section {
   padding: 0.5em;
 }
 
-.note--classic {
-  background-color: var(--secondary);
-  color: var(--accent);
-}
-
-.note--empty {
-  border: 1px dashed var(--secondary);
-  color: var(--secondary);
-}
-
-.note--form {
-  background-color: var(--tertiary);
-  color: var(--accent);
-  padding: 1em 0.5em;
-}
-
 .note__actions {
   display: flex;
   flex-direction: row;
@@ -103,9 +87,34 @@ section {
   border: 1px solid var(--primary);
 }
 
+.note__buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+}
+
+.note--classic {
+  background-color: var(--secondary);
+  color: var(--accent);
+}
+
+.note--empty {
+  border: 1px dashed var(--secondary);
+  color: var(--secondary);
+}
+
+.note--form {
+  background-color: var(--tertiary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  color: var(--accent);
+}
+
 .note__input {
   border: none;
-  width: 80%;
+  width: 90%;
 }
 
 .note__button--new {
@@ -132,6 +141,7 @@ section {
 .note__label {
   font-size: 1.2em;
   font-weight: 700;
+  margin: 0.5em 0;
 }
 
 .note__text {
