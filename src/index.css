@@ -33,6 +33,7 @@ button {
   border: none;
   display: block;
   outline: none;
+  text-align: center;
 }
 
 input:focus {
@@ -65,10 +66,32 @@ section {
 }
 
 .note {
-  background-color: var(--secondary);
   border-radius: 0.5em;
   color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
   padding: 0.5em;
+}
+
+.note--create {
+  background-color: var(--tertiary);
+}
+
+.note--empty {
+  align-items: center;
+  border: 1px dashed var(--secondary);
+  color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 4em;
+}
+
+.note--show {
+  background-color: var(--secondary);
 }
 
 .note__body {
@@ -79,11 +102,52 @@ section {
   color: var(--accent);
 }
 
+.note__button--create {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.note__button--create,
+.note__button--cancel {
+  border: 1px solid var(--primary);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  width: 100%;
+}
+
+.note__button--new {
+  border-radius: 50%;
+  color: var(--secondary);
+  font-size: 1.2em;
+  text-align: center;
+  width: 2em;
+}
+
+.note__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.note__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
 .note__header {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   gap: 0.5em;
+}
+
+.note__input {
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  width: 100%;
 }
 
 .note__text {

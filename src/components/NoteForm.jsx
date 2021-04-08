@@ -4,11 +4,11 @@ import { useState } from "react"
 const NoteForm = ({ setNotes, setIsVisibleNew, setSaving }) => {
     const [text, setText] = useState("");
     const handletext = (e) => setText(e.target.value);
+    const cancelNote = () => setIsVisibleNew(false);
 
     const [error, setError] = useState(null);
     const saveNote = (e) => {
         e.preventDefault();
-        console.log("Saving...", text);
         setSaving(true);
 
         // Add a new document in collection "notes"
@@ -17,7 +17,7 @@ const NoteForm = ({ setNotes, setIsVisibleNew, setSaving }) => {
             .add({ text, createdAt: new Date() })
             .then(({ id }) => {
                 newNote.id = id;
-                setNotes(prevNotes => [...prevNotes, newNote])
+                setNotes(prevNotes => [newNote, ...prevNotes])
                 setIsVisibleNew(false);
                 setSaving(false);
             })
@@ -28,7 +28,7 @@ const NoteForm = ({ setNotes, setIsVisibleNew, setSaving }) => {
     }
 
     return (
-        <div className="note">
+        <div className="note note--create">
             <h2 className="note__heading">New Note</h2>
             <form onSubmit={saveNote} className="note__form">
                 <div className="note__field">
@@ -45,10 +45,11 @@ const NoteForm = ({ setNotes, setIsVisibleNew, setSaving }) => {
                     />
                 </div>
                 <div className="note__buttons">
-                    <input type="submit"
-                        className="note__button note__button--primary"
-                        value="Create"
-                    />
+                    <button type="submit"
+                        className="note__button note__button--create">Create</button>
+                    <button type="submit"
+                        className="note__button note__button--cancel"
+                        onClick={cancelNote}>Cancel</button>
                 </div>
             </form>
             {error && <p className="note__message--error">{error}</p>}

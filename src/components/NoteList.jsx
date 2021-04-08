@@ -29,7 +29,7 @@ const NoteList = () => {
             }
             {
                 notes.map(({ id, text = "" }) =>
-                    <div className="note" key={id} id={id}>
+                    <div className="note note--show" key={id} id={id}>
                         <NoteHeader
                             id={id}
                             setNotes={setNotes}
