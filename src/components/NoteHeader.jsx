@@ -1,3 +1,4 @@
+// notes-app/src/components/NoteHeader.jsx
 import { db } from '../firebaseConfig'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'

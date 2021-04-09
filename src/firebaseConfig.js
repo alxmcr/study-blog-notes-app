@@ -1,6 +1,5 @@
-// Firebase App (the core Firebase SDK) is always required and must be listed first
+// notes-app/src/firebaseConfig.js
 import firebase from "firebase/app";
-// Firestore
 import "firebase/firestore";
 
 // Your web app's Firebase configuration

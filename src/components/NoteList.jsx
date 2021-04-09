@@ -1,8 +1,9 @@
+// notes-app/src/components/NoteList.jsx
 import { useState } from "react";
 import useReadNotes from "../hooks/useReadNotes"
 import NoteActionCard from "./NoteActionCard";
 import NoteForm from "./NoteForm";
-import NoteHeader from './NoteHeader';
+import NoteShow from "./NoteShow";
 
 const NoteList = () => {
     const [loading, notes = [], setNotes] = useReadNotes();
@@ -29,15 +30,12 @@ const NoteList = () => {
             }
             {
                 notes.map(({ id, text = "" }) =>
-                    <div className="note note--show" key={id} id={id}>
-                        <NoteHeader
-                            id={id}
-                            setNotes={setNotes}
-                        />
-                        <div className="note__body">
-                            <p className="note__text">{text}</p>
-                        </div>
-                    </div>
+                    <NoteShow
+                        key={id}
+                        id={id}
+                        text={text}
+                        setNotes={setNotes}
+                    />
                 )
             }
         </section>

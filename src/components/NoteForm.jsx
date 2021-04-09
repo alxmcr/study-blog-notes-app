@@ -1,3 +1,4 @@
+// notes-app/src/components/NoteForm.jsx
 import { db } from '../firebaseConfig'
 import { useState } from "react"
 
